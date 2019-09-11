@@ -1,0 +1,12 @@
+server:
+  port: 5000
+
+spring:
+  cloud:
+    config:
+      name: configserver
+      server:
+        git:
+          uri: https://github.com/ilya-shpv/
+          #uri: https://github.com/PacktPublishing/Spring-5.0-By-Example
+          search-paths: config-files*

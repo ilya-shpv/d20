@@ -1,0 +1,33 @@
+version: '3'
+services:
+
+  gateway:
+      hostname: gateway
+      restart: always
+      image: d20/gateway
+      ports:
+        - "8888:8888"
+      networks:
+        - d20
+
+  config:
+    hostname: config
+    image: d20/config
+    ports:
+      - "5000:5000"
+    networks:
+      - d20
+
+  discovery:
+      hostname: discovery
+      restart: always
+      image: d20/discovery
+      ports:
+        - "8761:8761"
+      networks:
+        - d20
+
+
+networks:
+  d20:
+    driver: bridge

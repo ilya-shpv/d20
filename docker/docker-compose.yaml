@@ -12,8 +12,6 @@ services:
         memlock:
           soft: -1
           hard: -1
-      volumes:
-        - esdata01:/usr/share/elasticsearch/data
       ports:
         - 9300:9300
       networks:
@@ -66,8 +64,18 @@ services:
       networks:
         - d20
 
+  zipkin:
+      hostname: zipkin
+      restart: always
+      image: d20/discovery
+      ports:
+        - "9999:9999"
+      networks:
+        - d20
+
   mongo:
       hostname: mongo
+      restart: always
       image: mongo
       ports:
         - "27017:27017"

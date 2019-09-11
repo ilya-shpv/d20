@@ -1,0 +1,26 @@
+server:
+  port: 9999
+
+spring:
+  rabbitmq:
+    port: 5672
+    host: localhost
+  data:
+    elasticsearch:
+      cluster-name: docker-cluster
+      cluster-nodes: 192.168.99.100:9300
+  sleuth:
+    enabled: false
+
+zipkin:
+  storage:
+    type: elasticsearch
+
+logging:
+  level:
+    ROOT: INFO
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
